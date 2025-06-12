@@ -1,4 +1,4 @@
-## 🧠 Spatial Pairing Algorithm
+## Spatial Pairing Algorithm
 
 Our method uses a **spatial pairing algorithm** that maximizes the following objective using a **linear assignment problem**:
 
