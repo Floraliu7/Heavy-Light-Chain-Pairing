@@ -2,7 +2,8 @@
 
 Our method uses a **spatial pairing algorithm** that maximizes the following objective using a **linear assignment problem**:
 
-L(X, ω) = ∑₍ᵢ,ⱼ₎ Xᵢⱼ [ ω · D̃ᵢⱼ + (1 - ω) · Mᵢⱼ ]
+<img width="390" height="63" alt="Screenshot 2025-07-30 at 19 55 35" src="https://github.com/user-attachments/assets/3d42e7a3-66a8-4cd7-b124-11cb68943896" />
+
 
 Where:
 - Xᵢⱼ is a **binary variable**: 1 if heavy chain *i* is paired with light chain *j*, 0 otherwise.
