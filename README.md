@@ -7,6 +7,7 @@ Our method uses a **spatial pairing algorithm** that maximizes the following obj
 
 Where:
 - <img width="51" height="48" alt="Screenshot 2025-07-30 at 19 57 01" src="https://github.com/user-attachments/assets/74333f22-20ef-41ab-8ed0-34ad5ae3be18" />
+\textstyle X_{ij}
 is a **binary variable**: 1 if heavy chain *i* is paired with light chain *j*, 0 otherwise.
 - <img width="25" height="26" alt="Screenshot 2025-07-30 at 19 57 12" src="https://github.com/user-attachments/assets/ccd7deee-1f28-437f-9914-eacd0dca58b0" />
  is a **tuning parameter** that balances spatial distance and expression similarity.
