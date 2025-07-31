@@ -6,7 +6,7 @@ Our method uses a **spatial pairing algorithm** that maximizes the following obj
 
 
 Where:
-- <img width="10" height="10" alt="Screenshot 2025-07-30 at 19 57 01" src="https://github.com/user-attachments/assets/74333f22-20ef-41ab-8ed0-34ad5ae3be18" /> is a **binary variable**: 1 if heavy chain *i* is paired with light chain *j*, 0 otherwise.
+- <img width="25" height="25" alt="Screenshot 2025-07-30 at 19 57 01" src="https://github.com/user-attachments/assets/74333f22-20ef-41ab-8ed0-34ad5ae3be18" /> is a **binary variable**: 1 if heavy chain *i* is paired with light chain *j*, 0 otherwise.
 - <img width="25" height="26" alt="Screenshot 2025-07-30 at 19 57 12" src="https://github.com/user-attachments/assets/ccd7deee-1f28-437f-9914-eacd0dca58b0" /> is a **tuning parameter** that balances spatial distance and expression similarity.
 - <img width="46" height="49" alt="Screenshot 2025-07-30 at 19 57 18" src="https://github.com/user-attachments/assets/446deac9-2b45-4dce-9ac4-8e620f0c2f72" /> is the **normalized spatial distance** between chain *i* and *j*:
 - <img width="51" height="40" alt="Screenshot 2025-07-30 at 19 57 28" src="https://github.com/user-attachments/assets/0aa3b70c-7af2-432f-bb94-9ef017f7f4d0" /> is the **mapping matrix** learned from the REPAIR model, representing how much light chain *j* contributes to the expression of heavy chain *i*.
