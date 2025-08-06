@@ -91,7 +91,6 @@ Once the dataframe is ready, you can use the provided scripts to:
 
 Process **heavy** and **light** chain expression matrices separately to create spatial point patterns for downstream analysis.
 
----
 
 #### `clone_info_combined(df, img.scale = 1)`
 
@@ -106,7 +105,6 @@ Process **heavy** and **light** chain expression matrices separately to create s
 - A data frame with spatial info for each clone:  
   `x`, `y`, `n`, `clone_id`, `clone_id_rank`
 
----
 
 #### `create_ppp_from_clone_info(clone_df)`
 
@@ -115,6 +113,10 @@ Process **heavy** and **light** chain expression matrices separately to create s
 
 **Output:**
 - A `ppp` object (spatial point pattern) with clone metadata as marks
+
+---
+
+
 
 ## Solution Output: Chain Pairing Results
 
