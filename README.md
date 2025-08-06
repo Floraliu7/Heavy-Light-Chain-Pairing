@@ -153,6 +153,29 @@ This normalized matrix will later be combined with the REPAIR model output to gu
 
 ---
 
+### Step 3: Run the REPAIR Model
+
+In this step, we use the [REPAIR model](https://github.com/almaan/star-repair) to infer pairing probabilities between heavy and light chain clones based on their expression profiles.
+
+
+#### Prepare Input for REPAIR
+
+REPAIR requires a **combined expression matrix** as input, where:
+- **Rows** = heavy chain clones  
+- **Columns** = light chain clones  
+- **Values** = expression scores or estimated counts
+
+You can create this by merging your heavy and light expression matrices into one combined file (e.g., `.tsv` format).
+
+
+#### Run REPAIR from the Terminal
+
+Use the following command format to run REPAIR:
+
+```bash
+repair analyze -i INPUT_FILE -o OUTDIR -ap A_PATTERN -bp B_PATTERN -x 1 -b 100 -nb 1
+
+---
 
 ## Solution Output: Chain Pairing Results
 
