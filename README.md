@@ -116,6 +116,42 @@ Process **heavy** and **light** chain expression matrices separately to create s
 
 ---
 
+### Step 2: Compute Distances Between Point Patterns
+
+After generating spatial point patterns for light and heavy chains (Step 1), the next step is to compute a distance matrix that captures the spatial proximity between each pair of light and heavy clones.
+
+This step uses spatial point pattern matching to evaluate how closely two patterns (a light clone and a heavy clone) co-localize across the tissue.
+
+
+#### `spatial_distance_matrix(L.id, H.id, ppp_L, ppp_H, cutoff = 1e6)`
+
+**Input:**
+- `L.id`: Vector of light chain clone IDs  
+- `H.id`: Vector of heavy chain clone IDs  
+- `ppp_L`: Point pattern object for light clones  
+- `ppp_H`: Point pattern object for heavy clones  
+- `cutoff`: Maximum distance to consider for matching (default: `1e6`)
+
+**Output:**
+- A numeric matrix where:
+  - Rows = heavy clones  
+  - Columns = light clones  
+  - Each value = distance between the corresponding point patterns
+
+
+#### `transD(dist_matrix)`
+
+**Input:**
+- `dist_matrix`: Distance matrix from `spatial_distance_matrix()`
+
+**Output:**
+- A transformed matrix where:
+  - Each row is normalized to sum to 1  
+  - Larger distances are converted into smaller weights via exponential decay (`exp(-distance)`)
+
+This normalized matrix will later be combined with the REPAIR model output to guide spatial pairing decisions.
+
+---
 
 
 ## Solution Output: Chain Pairing Results
