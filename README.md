@@ -19,7 +19,7 @@ This framework allows us to balance **spatial proximity** and **expression evide
 
 ---
 
-## 📐 Data Preparation Guide
+## Data Preparation Guide
 
 To apply this tool to your own dataset, you will need to prepare a single combined **data frame** that includes both spatial and gene expression information.
 
@@ -85,7 +85,38 @@ Once the dataframe is ready, you can use the provided scripts to:
 
 ---
 
-## 🎯 Solution Output: Chain Pairing Results
+## Step-by-Step Instructions
+
+### Step 1: Convert DataFrame to Spatial Point Patterns
+
+Process **heavy** and **light** chain expression matrices separately to create spatial point patterns for downstream analysis.
+
+---
+
+#### `clone_info_combined(df, img.scale = 1)`
+
+**Input:**
+- `df`: Expression matrix with:
+  - Column 1: barcode  
+  - Columns 2–3: spatial coordinates (`imagerow/imagecol` or `y/x`)  
+  - Columns 4+: expression values for each clone  
+- `img.scale`: Optional coordinate scaling factor (default = 1)
+
+**Output:**
+- A data frame with spatial info for each clone:  
+  `x`, `y`, `n`, `clone_id`, `clone_id_rank`
+
+---
+
+#### `create_ppp_from_clone_info(clone_df)`
+
+**Input:**
+- `clone_df`: Output from `clone_info_combined()`
+
+**Output:**
+- A `ppp` object (spatial point pattern) with clone metadata as marks
+
+## Solution Output: Chain Pairing Results
 
 After completing the data preparation and running the pairing algorithm, users can generate the **final pairing solution** matrix like the example shown below.
 
