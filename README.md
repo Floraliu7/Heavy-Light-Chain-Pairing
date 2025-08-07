@@ -175,6 +175,30 @@ Use the following command format to run REPAIR:
 <pre>  repair analyze -i INPUT_FILE -o OUTDIR -ap A_PATTERN -bp B_PATTERN -mxo 10 -x 1 -b 100 -nb 1  </pre>
 ---
 
+### Step 4: Apply the Spatial Pairing Algorithm
+
+In this final step, we combine the REPAIR-based mapping matrix with the spatial weight matrix to determine optimal light-heavy chain pairings.
+
+The pairing is done using a weighted combination of both sources of information, controlled by a parameter `w` ranging from 0 to 1.
+
+---
+
+#### `pairs(w, transD, mapping_matrix, H.id)`
+
+**Input:**
+- `w`: A vector of weights (e.g., `seq(0, 1, by = 0.1)`) controlling the balance between spatial and REPAIR scores
+- `transD`: The normalized spatial distance matrix (from Step 2)
+- `mapping_matrix`: The REPAIR output matrix (from Step 3)
+- `H.id`: A vector of heavy chain clone IDs
+
+**Output:**
+- A data frame with:
+  - Column 1: heavy clone IDs
+  - Subsequent columns: the corresponding paired light clone ID for each value of `w` (e.g., `w=0.0`, `w=0.1`, ..., `w=1.0`)
+
+---
+
+
 ## Solution Output: Chain Pairing Results
 
 After completing the data preparation and running the pairing algorithm, users can generate the **final pairing solution** matrix like the example shown below.
