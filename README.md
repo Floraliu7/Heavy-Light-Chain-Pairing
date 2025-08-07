@@ -172,8 +172,7 @@ You can create this by merging your heavy and light expression matrices into one
 
 Use the following command format to run REPAIR:
 
-<pre> ``` repair analyze -i INPUT_FILE -o OUTDIR -ap A_PATTERN -bp B_PATTERN -mxo 10 -x 1 -b 100 -nb 1 ``` </pre>
-
+<pre>  repair analyze -i INPUT_FILE -o OUTDIR -ap A_PATTERN -bp B_PATTERN -mxo 10 -x 1 -b 100 -nb 1  </pre>
 ---
 
 ## Solution Output: Chain Pairing Results
