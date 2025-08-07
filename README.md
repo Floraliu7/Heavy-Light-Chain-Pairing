@@ -181,7 +181,6 @@ In this final step, we combine the REPAIR-based mapping matrix with the spatial 
 
 The pairing is done using a weighted combination of both sources of information, controlled by a parameter `w` ranging from 0 to 1.
 
----
 
 #### `pairs(w, transD, mapping_matrix, H.id)`
 
