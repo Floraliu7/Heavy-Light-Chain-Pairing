@@ -30,7 +30,7 @@ transformed_D <- transD(dist_mat)
 mapping_matrix <- as.matrix(read.csv("data/mapping_matrix.csv", row.names = 1))
 
 # Run pairing over omega values
-omega_values <- seq(0, 1, by = 0.2)
+omega_values <- seq(0, 1, by = 0.1)
 pair_results <- pairs(omega_values, transformed_D, mapping_matrix, heavy.clone.id = rownames(mapping_matrix))
 
 # Save results
