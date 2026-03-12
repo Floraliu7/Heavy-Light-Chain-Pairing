@@ -174,7 +174,7 @@ The original REPAIR pairing output is **not produced** in this modified version 
 
 ---
 
-### Prepare Input for REPAIR
+#### Prepare Input for REPAIR
 
 REPAIR requires a **combined expression matrix** as input, where:
 
@@ -186,7 +186,7 @@ This matrix can be constructed by combining heavy and light chain expression dat
 
 ---
 
-### Run REPAIR from the Terminal
+#### Run REPAIR from the Terminal
 
 Run the REPAIR model using the following command:
 
@@ -194,7 +194,7 @@ Run the REPAIR model using the following command:
 
 ---
 
-### Output
+#### Output
 
 The modified REPAIR implementation produces **one output file**: *_model_matrix.tsv
 
