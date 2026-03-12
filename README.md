@@ -187,17 +187,7 @@ This matrix can be constructed by combining heavy and light chain expression dat
 
 Run the REPAIR model using the following command:
 
-<pre>
-repair analyze \
--i INPUT_FILE \
--o OUTDIR \
--ap A_PATTERN \
--bp B_PATTERN \
--mxo 10 \
--x 1 \
--b 100 \
--nb 1
-</pre>
+<pre> repair analyze -i INPUT_FILE -o OUTDIR -ap A_PATTERN -bp B_PATTERN -mxo 10 -x 1 -b 100 -nb 1 </pre>
 
 ---
 
@@ -209,7 +199,7 @@ This file contains the **fitted pairing probability matrix `M`**, where:
 
 - **Rows** correspond to heavy chain clones  
 - **Columns** correspond to light chain clones  
-- **Entries** represent inferred pairing strengths between clone pairs
+- **Entries** represent the expression contribution between each heavy chain and light chain
 
 This matrix is used as input for the downstream SPaCeD analysis pipeline.
 
