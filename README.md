@@ -155,24 +155,65 @@ This normalized matrix will later be combined with the REPAIR model output to gu
 
 ### Step 3: Run the REPAIR Model
 
-In this step, we use the [REPAIR model](https://github.com/almaan/star-repair) to infer pairing probabilities between heavy and light chain clones based on their expression profiles.
+In this step, we use the [REPAIR model](https://github.com/almaan/star-repair) to estimate pairing probabilities between heavy and light chain clones based on their expression profiles.
 
+⚠️ **Important note**
 
-#### Prepare Input for REPAIR
+This pipeline uses a **modified version of REPAIR**.  
+Compared with the original implementation:
+
+- Dependency versions in `repair.yml` were updated for compatibility.
+- `repair/analyze.py` was modified so that the model **only exports the fitted pairing matrix (`model.M`)**.
+
+The modified REPAIR implementation is available here:
+
+https://github.com/Floraliu7/star-repair
+
+---
+
+### Prepare Input for REPAIR
 
 REPAIR requires a **combined expression matrix** as input, where:
+
 - **Rows** = heavy chain clones  
 - **Columns** = light chain clones  
 - **Values** = expression scores or estimated counts
 
-You can create this by merging your heavy and light expression matrices into one combined file (e.g., `.tsv` format).
+This matrix can be constructed by combining heavy and light chain expression data into a single `.tsv` file.
+
+---
+
+### Run REPAIR from the Terminal
+
+Run the REPAIR model using the following command:
+
+<pre>
+repair analyze \
+-i INPUT_FILE \
+-o OUTDIR \
+-ap A_PATTERN \
+-bp B_PATTERN \
+-mxo 10 \
+-x 1 \
+-b 100 \
+-nb 1
+</pre>
+
+---
+
+### Output
+
+The modified REPAIR implementation produces **one output file**: *_model_matrix.tsv
+
+This file contains the **fitted pairing probability matrix `M`**, where:
+
+- **Rows** correspond to heavy chain clones  
+- **Columns** correspond to light chain clones  
+- **Entries** represent inferred pairing strengths between clone pairs
+
+This matrix is used as input for the downstream SPaCeD analysis pipeline.
 
 
-#### Run REPAIR from the Terminal
-
-Use the following command format to run REPAIR:
-
-<pre>  repair analyze -i INPUT_FILE -o OUTDIR -ap A_PATTERN -bp B_PATTERN -mxo 10 -x 1 -b 100 -nb 1  </pre>
 ---
 
 ### Step 4: Apply the Spatial Pairing Algorithm
