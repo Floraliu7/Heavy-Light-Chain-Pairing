@@ -155,19 +155,22 @@ This normalized matrix will later be combined with the REPAIR model output to gu
 
 ### Step 3: Run the REPAIR Model
 
-In this step, we use the [REPAIR model](https://github.com/almaan/star-repair) to estimate pairing probabilities between heavy and light chain clones based on their expression profiles.
+In this step, we use the [REPAIR model](https://github.com/almaan/star-repair) to infer pairing probabilities between heavy and light chain clones based on their expression profiles.
 
-⚠️ **Important note**
+⚠️ **Important**
 
-This pipeline uses a **modified version of REPAIR**.  
-Compared with the original implementation:
-
-- Dependency versions in `repair.yml` were updated for compatibility.
-- `repair/analyze.py` was modified so that the model **only exports the fitted pairing matrix (`model.M`)**.
-
-The modified REPAIR implementation is available here:
+This pipeline uses a **modified version of REPAIR** available here:
 
 https://github.com/Floraliu7/star-repair
+
+Installation can follow the instructions in the **original REPAIR repository**, but the modified files provided in this fork should be used.
+
+Compared with the original implementation, we made two changes:
+
+1. Updated dependency versions in `conda/repair.yml` to ensure compatibility with newer Python and NumPy versions.
+2. Modified `repair/analyze.py` so that the REPAIR model **only exports the fitted model matrix (`M`)**, which is used directly in the SPaCeD pipeline.
+
+The original REPAIR pairing output is **not produced** in this modified version to avoid confusion between REPAIR results and the downstream pairing step implemented in this repository.
 
 ---
 
