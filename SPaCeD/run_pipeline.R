@@ -27,11 +27,11 @@ dist_mat <- spatial_distance_matrix(L.id, H.id, ppp_L, ppp_H, cutoff = 1000000)
 transformed_D <- transD(dist_mat)
 
 # Load your mapping matrix from REPAIR output (example path)
-mapping_matrix <- as.matrix(read.csv("data/mapping_matrix.csv", row.names = 1))
+mapping_matrix <- as.matrix(read.delim("data/mapping_matrix.tsv", header = FALSE))  # Adjust path as needed
 
 # Run pairing over omega values
 omega_values <- seq(0, 1, by = 0.1)
-pair_results <- pairs(omega_values, transformed_D, mapping_matrix, heavy.clone.id = rownames(mapping_matrix))
+pair_results <- pairs(omega_values, transformed_D, mapping_matrix, H.id)
 
 # Save results
-write.csv(pair_results, "output/pairing_solutions.csv", row.names = FALSE)
+write.csv(pair_results, "output/pairing_solutions.csv", row.names = FALSE)  # Adjust path as needed
